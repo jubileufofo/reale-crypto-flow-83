@@ -51,6 +51,31 @@ const CryptoSection = () => {
     color: "text-white"
   }];
   return <section id="crypto-section" className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gradient-to-b from-reale-black via-reale-dark-gray to-reale-black relative overflow-hidden">
+      {/* Divisor dinâmico e amigável */}
+      <div className="relative w-full mb-16">
+        <div className="absolute inset-0 flex items-center">
+          <div className="w-full border-t border-white/10"></div>
+        </div>
+        <div className="relative flex justify-center">
+          <div className="bg-reale-black px-8">
+            <motion.div 
+              className="w-16 h-16 rounded-full bg-gradient-to-br from-reale-blue/30 to-purple-500/30 border border-white/20 flex items-center justify-center"
+              animate={{
+                scale: [1, 1.2, 1],
+                rotate: [0, 180, 360],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
+              <ArrowDown className="w-6 h-6 text-white/80" />
+            </motion.div>
+          </div>
+        </div>
+      </div>
+
       {/* Background Effects */}
       <div className="absolute inset-0">
         {/* Subtle grid pattern */}
@@ -63,7 +88,7 @@ const CryptoSection = () => {
         <div className="absolute top-20 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/8 to-transparent"></div>
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mt-8">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-6 sm:mb-8 lg:mb-10">

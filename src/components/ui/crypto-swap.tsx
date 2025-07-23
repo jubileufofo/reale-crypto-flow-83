@@ -324,8 +324,20 @@ export function CryptoSwapComponent() {
           </motion.div>}
 
         {/* Botão de Simular */}
-        <motion.button className={cn("w-full py-4 rounded-xl font-semibold transition-all duration-300", !swapState.realAmount || swapState.isLoading ? "bg-reale-gray cursor-not-allowed text-white/50" : "bg-white text-black hover:bg-white/90 hover:scale-[1.02]")} disabled={!swapState.realAmount || swapState.isLoading} onClick={handleSimulateSwap} whileTap={{
+        <motion.button className={cn("w-full py-4 rounded-xl font-semibold transition-all duration-300 bg-white text-black hover:bg-white/90 hover:scale-[1.02]", swapState.isLoading ? "cursor-not-allowed opacity-60" : "cursor-pointer")} disabled={swapState.isLoading} onClick={handleSimulateSwap} whileTap={{
         scale: 0.98
+      }} animate={{
+        boxShadow: [
+          "0 0 0 rgba(255, 255, 255, 0)",
+          "0 0 20px rgba(255, 255, 255, 0.5)",
+          "0 0 0 rgba(255, 255, 255, 0)"
+        ]
+      }} transition={{
+        boxShadow: {
+          duration: 2,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }
       }}>
           <div className="flex items-center justify-center gap-2">
             {swapState.isLoading ? <>
