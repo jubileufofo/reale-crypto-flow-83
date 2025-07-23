@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { ArrowRight, Zap, CreditCard, Wallet, Building2 } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { ArrowRight, Zap, CreditCard, Wallet, Bitcoin, Coins, DollarSign } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { TextRevealByWord } from '@/components/ui/text-reveal';
 import { CryptoSwapComponent } from '@/components/ui/crypto-swap';
@@ -8,6 +8,10 @@ import { motion } from 'framer-motion';
 const CryptoSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
+  const [currentCrypto, setCurrentCrypto] = useState(0);
+  
+  const cryptoIcons = [Bitcoin, Coins, DollarSign];
+  
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
@@ -34,6 +38,15 @@ const CryptoSection = () => {
       return () => clearInterval(interval);
     }
   }, [isVisible]);
+  
+  useEffect(() => {
+    if (isVisible) {
+      const interval = setInterval(() => {
+        setCurrentCrypto(prev => (prev + 1) % cryptoIcons.length);
+      }, 2000);
+      return () => clearInterval(interval);
+    }
+  }, [isVisible, cryptoIcons.length]);
   const steps = [{
     icon: CreditCard,
     title: "Escolha sua cripto",
@@ -61,15 +74,24 @@ const CryptoSection = () => {
             <motion.div 
               className="w-16 h-16 rounded-full bg-gradient-to-br from-reale-blue/30 to-purple-500/30 border border-white/20 flex items-center justify-center"
               animate={{
-                scale: [1, 1.2, 1]
+                scale: [1, 1.2, 1],
+                opacity: [1, 0.8, 1]
               }}
               transition={{
-                duration: 4,
+                duration: 2,
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
             >
-              <Building2 className="w-6 h-6 text-white/80" />
+              <motion.div
+                key={currentCrypto}
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.5 }}
+                transition={{ duration: 0.5 }}
+              >
+                {React.createElement(cryptoIcons[currentCrypto], { className: "w-6 h-6 text-white/80" })}
+              </motion.div>
             </motion.div>
           </div>
         </div>
