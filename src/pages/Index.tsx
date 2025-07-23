@@ -37,8 +37,8 @@ const Index = () => {
       <div id="home">
         <Hero />
       </div>
-      <ProcessingSection />
       <CryptoSection />
+      <ProcessingSection />
       <div id="account-section">
         <AccountOptionsSlider />
       </div>
