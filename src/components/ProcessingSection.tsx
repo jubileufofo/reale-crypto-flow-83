@@ -79,13 +79,13 @@ const ProcessingSection = () => {
         subtitle="Infraestrutura de pagamentos para o futuro. Tecnologia blockchain, pagamentos locais e integração cripto. Tudo em um só lugar, sem intermediários desnecessários."
         actions={[
           {
-            label: "Ver Demo",
-            href: "#demo",
+            label: "Abra sua conta",
+            href: "#account-section",
             variant: "outline"
           },
           {
-            label: "Começar Agora",
-            href: "#start",
+            label: "Baixe o app",
+            href: "#app-download",
             variant: "default"
           }
         ]}
