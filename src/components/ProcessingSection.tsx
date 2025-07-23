@@ -76,13 +76,13 @@ const ProcessingSection = () => {
             <span className="text-white/60">mais inteligente</span>
           </>
         }
-        subtitle="Infraestrutura de pagamentos para o futuro. Tecnologia blockchain, pagamentos locais e integração cripto. Tudo em um só lugar, sem intermediários desnecessários."
+        subtitle={
+          <>
+            Infraestrutura de pagamentos para o futuro. Tecnologia blockchain, pagamentos locais e integração cripto. Tudo em um só lugar, sem intermediários desnecessários. Tudo isso com sua conta{' '}
+            <span className="text-reale-blue font-semibold">digital completa</span>.
+          </>
+        }
         actions={[
-          {
-            label: "Abra sua conta",
-            href: "#account-section",
-            variant: "outline"
-          },
           {
             label: "Baixe o app",
             href: "#app-download",

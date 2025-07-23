@@ -15,7 +15,7 @@ interface HeroProps extends Omit<React.HTMLAttributes<HTMLElement>, 'title'> {
   gradient?: boolean
   blur?: boolean
   title?: React.ReactNode
-  subtitle?: string
+  subtitle?: React.ReactNode
   actions?: HeroAction[]
   titleClassName?: string
   subtitleClassName?: string
