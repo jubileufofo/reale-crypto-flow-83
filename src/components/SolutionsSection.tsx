@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { CreditCard, Zap, BarChart3, Wallet, Repeat, Shield } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -75,6 +75,54 @@ const SolutionsSection = () => {
       color: "accent"
     }
   ];
+
+  // Componente de contador animado
+  const AnimatedCounter = ({ targetValue, isVisible, delay = 0 }) => {
+    const [count, setCount] = useState(0);
+    
+    useEffect(() => {
+      if (!isVisible) return;
+      
+      const timeout = setTimeout(() => {
+        // Extrair o número do valor (ex: "99.9%" -> 99.9, "+50" -> 50)
+        const numericValue = parseFloat(targetValue.replace(/[^\d.]/g, ''));
+        const duration = 2000; // 2 segundos
+        const steps = 60; // 60 frames para suavidade
+        const increment = numericValue / steps;
+        let current = 0;
+        
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= numericValue) {
+            setCount(numericValue);
+            clearInterval(timer);
+          } else {
+            setCount(current);
+          }
+        }, duration / steps);
+        
+        return () => clearInterval(timer);
+      }, delay);
+      
+      return () => clearTimeout(timeout);
+    }, [targetValue, isVisible, delay]);
+    
+    // Formatar o valor de volta ao formato original
+    const formatValue = (value) => {
+      if (targetValue.includes('%')) {
+        return `${value.toFixed(1)}%`;
+      } else if (targetValue.includes('+')) {
+        return `+${Math.round(value)}`;
+      } else if (targetValue.includes('/')) {
+        return `${Math.round(value)}/7`;
+      } else if (targetValue.includes('-bit')) {
+        return `${Math.round(value)}-bit`;
+      }
+      return Math.round(value).toString();
+    };
+    
+    return formatValue(count);
+  };
 
   return (
     <section id="solutions-section" className="py-24 bg-gradient-to-b from-zinc-900 to-black relative overflow-hidden">
@@ -203,7 +251,13 @@ const SolutionsSection = () => {
               { number: "256-bit", label: "Criptografia" }
             ].map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-3xl font-bold text-blue-400 mb-2">{stat.number}</div>
+                <div className="text-3xl font-bold text-blue-400 mb-2">
+                  <AnimatedCounter 
+                    targetValue={stat.number} 
+                    isVisible={isVisible} 
+                    delay={1500 + (index * 200)} 
+                  />
+                </div>
                 <div className="text-zinc-400">{stat.label}</div>
               </div>
             ))}
