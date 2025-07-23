@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ArrowRight, Zap, CreditCard, Wallet, ArrowDown } from 'lucide-react';
+import { ArrowRight, Zap, CreditCard, Wallet, Building2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { TextRevealByWord } from '@/components/ui/text-reveal';
 import { CryptoSwapComponent } from '@/components/ui/crypto-swap';
@@ -61,8 +61,7 @@ const CryptoSection = () => {
             <motion.div 
               className="w-16 h-16 rounded-full bg-gradient-to-br from-reale-blue/30 to-purple-500/30 border border-white/20 flex items-center justify-center"
               animate={{
-                scale: [1, 1.2, 1],
-                rotate: [0, 180, 360],
+                scale: [1, 1.2, 1]
               }}
               transition={{
                 duration: 4,
@@ -70,7 +69,7 @@ const CryptoSection = () => {
                 ease: "easeInOut"
               }}
             >
-              <ArrowDown className="w-6 h-6 text-white/80" />
+              <Building2 className="w-6 h-6 text-white/80" />
             </motion.div>
           </div>
         </div>
