@@ -79,9 +79,10 @@ const SolutionsSection = () => {
   // Componente de contador animado
   const AnimatedCounter = ({ targetValue, isVisible, delay = 0 }) => {
     const [count, setCount] = useState(0);
+    const [hasAnimated, setHasAnimated] = useState(false);
     
     useEffect(() => {
-      if (!isVisible) return;
+      if (!isVisible || hasAnimated) return;
       
       const timeout = setTimeout(() => {
         // Extrair o número do valor (ex: "99.9%" -> 99.9, "+50" -> 50)
@@ -95,6 +96,7 @@ const SolutionsSection = () => {
           current += increment;
           if (current >= numericValue) {
             setCount(numericValue);
+            setHasAnimated(true);
             clearInterval(timer);
           } else {
             setCount(current);
@@ -105,7 +107,7 @@ const SolutionsSection = () => {
       }, delay);
       
       return () => clearTimeout(timeout);
-    }, [targetValue, isVisible, delay]);
+    }, [targetValue, isVisible, delay, hasAnimated]);
     
     // Formatar o valor de volta ao formato original
     const formatValue = (value) => {

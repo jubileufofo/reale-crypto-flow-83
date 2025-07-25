@@ -45,10 +45,9 @@ const Word: FC<WordProps> = ({
 }) => {
   const opacity = useTransform(progress, range, [0, 1]);
   return <span className="relative mx-1 lg:mx-2.5">
-      <span className="absolute opacity-30">{children}</span>
       <motion.span style={{
       opacity
-    }} className="text-zinc-600">
+    }} className="text-zinc-300">
         {children}
       </motion.span>
     </span>;

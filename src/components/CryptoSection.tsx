@@ -64,37 +64,9 @@ const CryptoSection = () => {
     color: "text-white"
   }];
   return <section id="crypto-section" className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gradient-to-b from-reale-black via-reale-dark-gray to-reale-black relative overflow-hidden">
-      {/* Divisor dinâmico e amigável */}
+      {/* Divisor simples */}
       <div className="relative w-full mb-16">
-        <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-white/10"></div>
-        </div>
-        <div className="relative flex justify-center">
-          <div className="bg-reale-black px-8">
-            <motion.div 
-              className="w-16 h-16 rounded-full bg-gradient-to-br from-reale-blue/30 to-purple-500/30 border border-white/20 flex items-center justify-center"
-              animate={{
-                scale: [1, 1.2, 1],
-                opacity: [1, 0.8, 1]
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            >
-              <motion.div
-                key={currentCrypto}
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.5 }}
-                transition={{ duration: 0.5 }}
-              >
-                {React.createElement(cryptoIcons[currentCrypto], { className: "w-6 h-6 text-white/80" })}
-              </motion.div>
-            </motion.div>
-          </div>
-        </div>
+        <div className="w-full border-t border-white/10"></div>
       </div>
 
       {/* Background Effects */}
