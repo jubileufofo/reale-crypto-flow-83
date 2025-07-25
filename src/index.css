@@ -527,12 +527,6 @@ All colors MUST be HSL.
   }
 }
 
-@keyframes scaleIn {
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
 
 /* Parallax and Scroll Effects */
 .parallax-bg {

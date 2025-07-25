@@ -48,12 +48,6 @@ const Header = () => {
 
           {/* Navigation Buttons */}
           <div className="flex items-center space-x-4">
-            <Button variant="outline" className="text-white border-white/20 hover:bg-white/10">
-              Entrar
-            </Button>
-            <Button className="bg-gradient-primary text-white hover:opacity-90">
-              Criar conta
-            </Button>
             <HamburgerButton 
               className="text-white border-white/20 hover:bg-white/10"
               open={isDockOpen}

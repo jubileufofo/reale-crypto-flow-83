@@ -4,14 +4,16 @@ import { motion } from 'framer-motion';
 
 const SolutionsSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [hasBeenVisible, setHasBeenVisible] = useState(false);
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   const [showTypewriter, setShowTypewriter] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !hasBeenVisible) {
           setIsVisible(true);
+          setHasBeenVisible(true);
           // Delay typewriter effect
           setTimeout(() => setShowTypewriter(true), 800);
         }
@@ -29,7 +31,7 @@ const SolutionsSection = () => {
         observer.unobserve(element);
       }
     };
-  }, []);
+  }, [hasBeenVisible]);
 
   const solutions = [
     {
@@ -161,15 +163,11 @@ const SolutionsSection = () => {
         {/* Solutions Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {solutions.map((solution, index) => (
-            <motion.div
+            <div
               key={index}
               className={`group relative transition-all duration-1000 delay-${index * 100} ${isVisible ? 'animate-scale-in' : 'opacity-0 scale-90'}`}
               onMouseEnter={() => setHoveredCard(index)}
               onMouseLeave={() => setHoveredCard(null)}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
             >
               {/* Background Glow - Azul */}
               <div className={`absolute -inset-px bg-blue-500/20 opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500 rounded-2xl`}></div>
@@ -239,7 +237,7 @@ const SolutionsSection = () => {
                   }`}></div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
