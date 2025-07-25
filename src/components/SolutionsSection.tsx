@@ -87,10 +87,30 @@ const SolutionsSection = () => {
       if (!isVisible || hasAnimated) return;
       
       const timeout = setTimeout(() => {
-        // Extrair o número do valor (ex: "99.9%" -> 99.9, "+50" -> 50)
-        const numericValue = parseFloat(targetValue.replace(/[^\d.]/g, ''));
-        const duration = 2000; // 2 segundos
-        const steps = 60; // 60 frames para suavidade
+        // Extrair o número corretamente baseado no formato
+        let numericValue = 0;
+        let originalSuffix = '';
+        
+        if (targetValue.includes('%')) {
+          numericValue = parseFloat(targetValue.replace('%', ''));
+          originalSuffix = '%';
+        } else if (targetValue.includes('+')) {
+          numericValue = parseFloat(targetValue.replace('+', ''));
+          originalSuffix = '+';
+        } else if (targetValue.includes('/')) {
+          // Para "24/7", extrair apenas o primeiro número
+          const parts = targetValue.split('/');
+          numericValue = parseFloat(parts[0]);
+          originalSuffix = `/${parts[1]}`;
+        } else if (targetValue.includes('-bit')) {
+          numericValue = parseFloat(targetValue.replace('-bit', ''));
+          originalSuffix = '-bit';
+        } else {
+          numericValue = parseFloat(targetValue);
+        }
+        
+        const duration = 1500; // Reduzido para ser mais rápido
+        const steps = 30; // Menos steps para melhor performance
         const increment = numericValue / steps;
         let current = 0;
         
@@ -118,22 +138,23 @@ const SolutionsSection = () => {
       } else if (targetValue.includes('+')) {
         return `+${Math.round(value)}`;
       } else if (targetValue.includes('/')) {
-        return `${Math.round(value)}/7`;
+        const parts = targetValue.split('/');
+        return `${Math.round(value)}/${parts[1]}`;
       } else if (targetValue.includes('-bit')) {
         return `${Math.round(value)}-bit`;
       }
       return Math.round(value).toString();
     };
     
-    return formatValue(count);
+    return <span className="tabular-nums">{formatValue(count)}</span>;
   };
 
   return (
     <section id="solutions-section" className="py-24 bg-gradient-to-b from-zinc-900 to-black relative overflow-hidden">
-      {/* Background Effects - Monocromático */}
+      {/* Background Effects - Estático */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-white/5 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-white/3 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-white/3 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-white/2 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -255,7 +276,7 @@ const SolutionsSection = () => {
                   <AnimatedCounter 
                     targetValue={stat.number} 
                     isVisible={isVisible} 
-                    delay={1500 + (index * 200)} 
+                    delay={1000 + (index * 150)} 
                   />
                 </div>
                 <div className="text-zinc-400">{stat.label}</div>
@@ -265,10 +286,10 @@ const SolutionsSection = () => {
         </div>
       </div>
 
-      {/* Floating Particles - Azul */}
-      <div className="absolute top-20 right-10 w-2 h-2 bg-blue-400 rounded-full animate-float opacity-60"></div>
-      <div className="absolute bottom-40 left-20 w-3 h-3 bg-blue-500 rounded-full animate-float opacity-40" style={{ animationDelay: '2s' }}></div>
-      <div className="absolute top-1/2 right-1/4 w-1 h-1 bg-blue-400 rounded-full animate-float opacity-80" style={{ animationDelay: '1s' }}></div>
+      {/* Floating Particles - Estático */}
+      <div className="absolute top-20 right-10 w-2 h-2 bg-blue-400 rounded-full opacity-40"></div>
+      <div className="absolute bottom-40 left-20 w-3 h-3 bg-blue-500 rounded-full opacity-30"></div>
+      <div className="absolute top-1/2 right-1/4 w-1 h-1 bg-blue-400 rounded-full opacity-50"></div>
     </section>
   );
 };
