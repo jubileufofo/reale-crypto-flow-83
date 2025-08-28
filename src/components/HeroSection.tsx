@@ -11,12 +11,12 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
-      {/* Animated Background Elements */}
+      {/* Background Elements - Estático */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-20 h-20 bg-primary/20 rounded-full animate-float"></div>
-        <div className="absolute top-40 right-20 w-16 h-16 bg-accent/20 rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute bottom-40 left-1/4 w-24 h-24 bg-primary/10 rounded-full animate-float" style={{ animationDelay: '4s' }}></div>
-        <div className="absolute bottom-20 right-1/3 w-12 h-12 bg-accent/30 rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-20 left-10 w-20 h-20 bg-primary/10 rounded-full"></div>
+        <div className="absolute top-40 right-20 w-16 h-16 bg-accent/10 rounded-full"></div>
+        <div className="absolute bottom-40 left-1/4 w-24 h-24 bg-primary/5 rounded-full"></div>
+        <div className="absolute bottom-20 right-1/3 w-12 h-12 bg-accent/15 rounded-full"></div>
         
         {/* Grid Pattern */}
         <div className="absolute inset-0 bg-grid-pattern opacity-20"></div>
@@ -85,7 +85,7 @@ const HeroSection = () => {
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
         <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white/60 rounded-full mt-2 animate-pulse"></div>
+          <div className="w-1 h-3 bg-white/60 rounded-full mt-2"></div>
         </div>
       </div>
     </section>

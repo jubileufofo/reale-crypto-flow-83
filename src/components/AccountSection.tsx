@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 
 const AccountSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [hasAnimated, setHasAnimated] = useState(false);
   const [accountType, setAccountType] = useState<'pf' | 'pj'>('pf');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
@@ -17,8 +18,10 @@ const AccountSection = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !hasAnimated) {
           setIsVisible(true);
+          setHasAnimated(true);
+          observer.disconnect(); // Desconecta após animar uma vez
         }
       },
       { threshold: 0.1 }
@@ -30,11 +33,9 @@ const AccountSection = () => {
     }
 
     return () => {
-      if (element) {
-        observer.unobserve(element);
-      }
+      observer.disconnect();
     };
-  }, []);
+  }, [hasAnimated]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -163,7 +164,7 @@ const AccountSection = () => {
                   </>
                 ) : (
                   <div className="text-center py-8">
-                    <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse">
+                    <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
                       <CheckCircle className="w-10 h-10 text-green-500" />
                     </div>
                     <h3 className="text-2xl font-bold text-white mb-4">Conta enviada para análise!</h3>
