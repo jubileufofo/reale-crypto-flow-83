@@ -31,20 +31,20 @@ const ProcessingSection = () => {
   const cards = [
     {
       icon: RefreshCw,
-      title: "Pagamentos Automatizados",
-      description: "Processamento 100% digital sem complicações",
+      title: "Compra Instantânea",
+      description: "Processamento de compra via Pix em segundos",
       delay: "0s"
     },
     {
       icon: Shield,
-      title: "KYC & AML Automatizados",
-      description: "Fluxo semi-automático com integração simples",
+      title: "Segurança Avançada",
+      description: "Proteção de alto nível com criptografia de ponta",
       delay: "0.2s"
     },
     {
       icon: Globe,
-      title: "Do digital ao real em segundos.",
-      description: "Compre cripto ou receba em moeda local — direto, sem barreiras.",
+      title: "Carteira Multichain",
+      description: "Suporte a BTC, ETH, SOL, POL em uma só carteira",
       delay: "0.4s"
     },
     {
@@ -52,12 +52,6 @@ const ProcessingSection = () => {
       title: "Integração via API",
       description: "Conecte o Reale ao seu ecossistema com facilidade",
       delay: "0.6s"
-    },
-    {
-      icon: Briefcase,
-      title: "Conta PJ e PF",
-      description: "Infraestrutura para empresas e pessoas físicas com cadastro ágil",
-      delay: "0.8s"
     }
   ];
 
@@ -79,14 +73,13 @@ const ProcessingSection = () => {
         }
         subtitle={
           <>
-            Infraestrutura de pagamentos para o futuro. Tecnologia blockchain, pagamentos locais e integração cripto. Tudo em um só lugar, sem intermediários desnecessários. Tudo isso com sua conta{' '}
-            <span className="text-reale-blue font-semibold">digital completa</span>.
+            Compre cripto via Pix e armazene na Carteira Segura Multichain. Swap integrado, segurança avançada e suporte às principais redes blockchain, tudo em um só lugar.
           </>
         }
         actions={[
           {
             label: "Baixe o app",
-            href: "#app-download",
+            href: "/maintenance",
             variant: "default"
           }
         ]}
@@ -98,7 +91,7 @@ const ProcessingSection = () => {
       <div className="container mx-auto px-6 relative z-10">
 
         {/* Interactive Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
           {cards.map((card, index) => (
             <div
               key={index}

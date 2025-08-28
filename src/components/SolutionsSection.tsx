@@ -43,9 +43,9 @@ const SolutionsSection = () => {
     },
     {
       icon: Zap,
-      title: "Pix Instantâneo",
-      description: "Pagamentos e recebimentos via Pix com liquidação imediata e taxas reduzidas",
-      features: ["24/7 disponível", "Taxa zero", "API integrada", "Automação"],
+      title: "Compra via Pix",
+      description: "Compre criptomoedas de forma instantânea com pagamento via Pix",
+      features: ["Compra rápida", "Pix instantâneo", "Múltiplas criptos", "Taxa competitiva"],
       color: "accent"
     },
     {
@@ -56,23 +56,23 @@ const SolutionsSection = () => {
       color: "primary"
     },
     {
-      icon: Wallet,
-      title: "Carteira Integrada",
-      description: "Guarde e gerencie suas criptomoedas com segurança máxima e interface intuitiva",
-      features: ["Multi-crypto", "Cold storage", "Backup", "Recovery"],
+      icon: Repeat,
+      title: "Swap Integrado",
+      description: "Troque entre diferentes criptomoedas diretamente na sua carteira",
+      features: ["Swap direto", "Múltiplas redes", "Execução rápida", "Taxas baixas"],
       color: "accent"
     },
     {
-      icon: Repeat,
-      title: "Compra e Venda de Cripto",
-      description: "Trade de criptomoedas com as melhores taxas do mercado e execução instantânea",
-      features: ["Taxas baixas", "Execução rápida", "Múltiplas moedas", "Trading avançado"],
+      icon: Wallet,
+      title: "Transferências de Cripto",
+      description: "Envie e receba criptomoedas com segurança e rapidez",
+      features: ["Multi-crypto", "Transferência rápida", "Taxas baixas", "Histórico completo"],
       color: "primary"
     },
     {
       icon: Shield,
       title: "Segurança Avançada",
-      description: "Proteção de nível bancário com autenticação multifator e criptografia de ponta",
+      description: "Proteção de alto nível com autenticação multifator e criptografia de ponta",
       features: ["2FA", "Biometria", "Criptografia", "Auditoria"],
       color: "accent"
     }

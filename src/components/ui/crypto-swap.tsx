@@ -324,31 +324,14 @@ export function CryptoSwapComponent() {
           </motion.div>}
 
         {/* Botão de Simular */}
-        <motion.button className={cn("w-full py-4 rounded-xl font-semibold transition-all duration-300 bg-white text-black hover:bg-white/90 hover:scale-[1.02]", swapState.isLoading ? "cursor-not-allowed opacity-60" : "cursor-pointer")} disabled={swapState.isLoading} onClick={handleSimulateSwap} whileTap={{
-        scale: 0.98
-      }} animate={{
-        boxShadow: [
-          "0 0 0 rgba(255, 255, 255, 0)",
-          "0 0 20px rgba(255, 255, 255, 0.5)",
-          "0 0 0 rgba(255, 255, 255, 0)"
-        ]
-      }} transition={{
-        boxShadow: {
-          duration: 2,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }
-      }}>
-          <div className="flex items-center justify-center gap-2">
-            {swapState.isLoading ? <>
-                <Loader2 className="w-5 h-5 animate-spin" />
-                Processando...
-              </> : <>
-                <ArrowUpDown className="w-5 h-5" />
-                Comprar Cripto Agora
-              </>}
-          </div>
-        </motion.button>
+        <Button 
+          size="lg" 
+          className="bg-white text-black hover:bg-white/90 flex items-center gap-2 px-8 py-4 text-lg font-semibold w-full"
+          onClick={() => window.location.href = '/maintenance'}
+        >
+          <ArrowUpDown className="w-5 h-5" />
+          Comprar Cripto Agora
+        </Button>
 
         {/* Info adicional */}
         <div className="mt-4 text-center">

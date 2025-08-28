@@ -187,7 +187,10 @@ function AccountOptionsSlider() {
                       </div>
                     </div>
 
-                    <Button className="bg-white text-blue-900 hover:bg-blue-50 font-semibold px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base w-full sm:w-auto mt-2">
+                    <Button 
+                      className="bg-white text-blue-900 hover:bg-blue-50 font-semibold px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base w-full sm:w-auto mt-2"
+                      onClick={() => window.location.href = '/maintenance'}
+                    >
                       Criar Carteira Segura
                     </Button>
                   </div>
@@ -239,7 +242,10 @@ function AccountOptionsSlider() {
                     </div>
 
                     <div className="space-y-3">
-                      <Button className="bg-blue-500 text-white hover:bg-blue-600 font-semibold px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base w-full sm:w-auto">
+                      <Button 
+                        className="bg-blue-500 text-white hover:bg-blue-600 font-semibold px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base w-full sm:w-auto"
+                        onClick={() => window.location.href = '/maintenance'}
+                      >
                         Compre Agora
                       </Button>
                       <p className="text-xs text-gray-400 max-w-xs mx-auto leading-relaxed">

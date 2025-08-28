@@ -26,22 +26,24 @@ const AppDownloadSection = () => {
               <p className="text-white/70 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-8">Acesse sua Carteira Segura Multichain no app: compra de cripto via Pix, swap integrado e segurança de alto nível.</p>
               
               <div className="flex gap-4 justify-center">
-                <motion.a href="#" whileHover={{
-            scale: 1.05
-          }} whileTap={{
-            scale: 0.95
-          }} className="flex items-center gap-3 bg-white text-black px-6 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-colors">
+                <motion.button 
+                  onClick={() => window.location.href = '/maintenance'}
+                  whileHover={{ scale: 1.05 }} 
+                  whileTap={{ scale: 0.95 }} 
+                  className="flex items-center gap-3 bg-white text-black px-6 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-colors"
+                >
                   <Apple className="w-6 h-6" />
                   App Store
-                </motion.a>
-                <motion.a href="#" whileHover={{
-            scale: 1.05
-          }} whileTap={{
-            scale: 0.95
-          }} className="flex items-center gap-3 bg-green-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-green-700 transition-colors">
+                </motion.button>
+                <motion.button 
+                  onClick={() => window.location.href = '/maintenance'}
+                  whileHover={{ scale: 1.05 }} 
+                  whileTap={{ scale: 0.95 }} 
+                  className="flex items-center gap-3 bg-green-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-green-700 transition-colors"
+                >
                   <Play className="w-6 h-6" />
                   Google Play
-                </motion.a>
+                </motion.button>
               </div>
             </motion.div>
           </div>}>
