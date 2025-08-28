@@ -1,16 +1,13 @@
 import { useState, useEffect } from 'react';
-import { CheckCircle, User, Building, Mail, Phone, FileText } from 'lucide-react';
+import { CheckCircle, Mail, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
-const AccountSection = () => {
+const WalletSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [hasAnimated, setHasAnimated] = useState(false);
-  const [accountType, setAccountType] = useState<'pf' | 'pj'>('pf');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
-    name: '',
-    document: '',
     email: '',
     phone: ''
   });
@@ -27,7 +24,7 @@ const AccountSection = () => {
       { threshold: 0.1 }
     );
 
-    const element = document.getElementById('account-section');
+    const element = document.getElementById('wallet-section');
     if (element) {
       observer.observe(element);
     }
@@ -52,7 +49,7 @@ const AccountSection = () => {
   };
 
   return (
-    <section id="account-section" className="py-24 bg-reale-dark-gray relative overflow-hidden">
+    <section id="wallet-section" className="py-24 bg-reale-dark-gray relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
@@ -64,13 +61,13 @@ const AccountSection = () => {
           {/* Section Header */}
           <div className="text-center mb-16">
             <h2 className={`text-4xl md:text-6xl font-bold text-white mb-6 transition-all duration-1000 ${isVisible ? 'animate-slide-up' : 'opacity-0 translate-y-10'}`}>
-              Abra sua{' '}
               <span className="bg-gradient-primary bg-clip-text text-transparent">
-                Conta Digital
-              </span>
+                Carteira Segura
+              </span>{' '}
+              Multichain
             </h2>
             <p className={`text-xl text-white/80 max-w-3xl mx-auto transition-all duration-1000 delay-300 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
-              Conta completa para pessoa física e jurídica com aprovação em minutos
+              Armazene suas criptos com segurança avançada, swap integrado e suporte às principais redes.
             </p>
           </div>
 
@@ -80,58 +77,8 @@ const AccountSection = () => {
               <div className="glass-card rounded-3xl p-8">
                 {!isSubmitted ? (
                   <>
-                    {/* Account Type Selector */}
-                    <div className="flex space-x-4 mb-8">
-                      <button
-                        onClick={() => setAccountType('pf')}
-                        className={`flex-1 flex items-center justify-center space-x-2 py-3 rounded-xl transition-all duration-300 ${
-                          accountType === 'pf' 
-                            ? 'bg-primary text-white' 
-                            : 'bg-white/5 text-white/70 hover:bg-white/10'
-                        }`}
-                      >
-                        <User className="w-5 h-5" />
-                        <span>Pessoa Física</span>
-                      </button>
-                      <button
-                        onClick={() => setAccountType('pj')}
-                        className={`flex-1 flex items-center justify-center space-x-2 py-3 rounded-xl transition-all duration-300 ${
-                          accountType === 'pj' 
-                            ? 'bg-primary text-white' 
-                            : 'bg-white/5 text-white/70 hover:bg-white/10'
-                        }`}
-                      >
-                        <Building className="w-5 h-5" />
-                        <span>Pessoa Jurídica</span>
-                      </button>
-                    </div>
-
                     {/* Form */}
                     <form onSubmit={handleSubmit} className="space-y-6">
-                      <div>
-                        <label className="block text-white text-sm mb-2">
-                          {accountType === 'pf' ? 'Nome Completo' : 'Razão Social'}
-                        </label>
-                        <Input
-                          placeholder={accountType === 'pf' ? 'Seu nome completo' : 'Nome da empresa'}
-                          value={formData.name}
-                          onChange={(e) => handleInputChange('name', e.target.value)}
-                          className="bg-white/5 border-white/20 text-white placeholder-white/50 focus:border-primary"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-white text-sm mb-2">
-                          {accountType === 'pf' ? 'CPF' : 'CNPJ'}
-                        </label>
-                        <Input
-                          placeholder={accountType === 'pf' ? '000.000.000-00' : '00.000.000/0000-00'}
-                          value={formData.document}
-                          onChange={(e) => handleInputChange('document', e.target.value)}
-                          className="bg-white/5 border-white/20 text-white placeholder-white/50 focus:border-primary"
-                        />
-                      </div>
-
                       <div>
                         <label className="block text-white text-sm mb-2">E-mail</label>
                         <Input
@@ -154,12 +101,12 @@ const AccountSection = () => {
                       </div>
 
                       <Button type="submit" className="btn-primary w-full text-lg">
-                        Abrir Conta Digital
+                        Criar Carteira Segura
                       </Button>
                     </form>
 
                     <p className="text-center text-white/60 text-sm mt-4">
-                      Análise em até 24 horas úteis
+                      Processo seguro e rápido
                     </p>
                   </>
                 ) : (
@@ -167,10 +114,9 @@ const AccountSection = () => {
                     <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
                       <CheckCircle className="w-10 h-10 text-green-500" />
                     </div>
-                    <h3 className="text-2xl font-bold text-white mb-4">Conta enviada para análise!</h3>
+                    <h3 className="text-2xl font-bold text-white mb-4">Carteira criada com sucesso!</h3>
                     <p className="text-white/70 mb-6">
-                      Recebemos sua solicitação e nossa equipe irá analisar seus dados.
-                      Você receberá um e-mail com o resultado em até 24 horas.
+                      Sua Carteira Segura foi criada. Você receberá um e-mail com as instruções de acesso em breve.
                     </p>
                     <div className="flex justify-center">
                       <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
@@ -188,8 +134,8 @@ const AccountSection = () => {
                     <CheckCircle className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-white mb-2">Conta 100% Digital</h3>
-                    <p className="text-white/70">Abertura totalmente online sem burocracia</p>
+                    <h3 className="text-xl font-bold text-white mb-2">Armazenamento Protegido</h3>
+                    <p className="text-white/70">Cold storage e criptografia de ponta</p>
                   </div>
                 </div>
 
@@ -198,8 +144,8 @@ const AccountSection = () => {
                     <FileText className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-white mb-2">KYC Automatizado</h3>
-                    <p className="text-white/70">Verificação de identidade rápida e segura</p>
+                    <h3 className="text-xl font-bold text-white mb-2">Swap Integrado</h3>
+                    <p className="text-white/70">Troque tokens direto na carteira</p>
                   </div>
                 </div>
 
@@ -208,8 +154,8 @@ const AccountSection = () => {
                     <Mail className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-white mb-2">Suporte Especializado</h3>
-                    <p className="text-white/70">Atendimento personalizado para sua conta</p>
+                    <h3 className="text-xl font-bold text-white mb-2">Multi-chain</h3>
+                    <p className="text-white/70">BTC, ETH, SOL, POL suportados</p>
                   </div>
                 </div>
               </div>
@@ -218,12 +164,12 @@ const AccountSection = () => {
               <div className="glass-card rounded-2xl p-6">
                 <div className="grid grid-cols-2 gap-4 text-center">
                   <div>
-                    <div className="text-2xl font-bold text-primary mb-1">98%</div>
-                    <div className="text-white/60 text-sm">Aprovação</div>
+                    <div className="text-2xl font-bold text-primary mb-1">100%</div>
+                    <div className="text-white/60 text-sm">Seguro</div>
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-accent mb-1">24h</div>
-                    <div className="text-white/60 text-sm">Análise</div>
+                    <div className="text-2xl font-bold text-accent mb-1">4+</div>
+                    <div className="text-white/60 text-sm">Blockchains</div>
                   </div>
                 </div>
               </div>
@@ -235,4 +181,4 @@ const AccountSection = () => {
   );
 };
 
-export default AccountSection;
+export default WalletSection;

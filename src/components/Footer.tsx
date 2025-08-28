@@ -11,7 +11,7 @@ const Footer = () => {
             <h3 className="text-white font-semibold text-lg">Soluções</h3>
             <nav className="space-y-2">
               <a href="#crypto" className="block text-white/70 hover:text-white transition-colors duration-300">Compra de Cripto</a>
-              <a href="#conta" className="block text-white/70 hover:text-white transition-colors duration-300">Conta Digital</a>
+              <a href="#wallet" className="block text-white/70 hover:text-white transition-colors duration-300">Carteira Segura</a>
               <a href="#pagamentos" className="block text-white/70 hover:text-white transition-colors duration-300">Pagamentos</a>
               <a href="#api" className="block text-white/70 hover:text-white transition-colors duration-300">API</a>
             </nav>
@@ -57,7 +57,7 @@ const Footer = () => {
               <a href="#cookies" className="hover:text-white transition-colors duration-300">Cookies</a>
             </div>
             <div className="text-sm text-white/60">
-              © 2024 Reale Bank. Todos os direitos reservados.
+              © 2025 Reale. Todos os direitos reservados.
             </div>
           </div>
         </div>

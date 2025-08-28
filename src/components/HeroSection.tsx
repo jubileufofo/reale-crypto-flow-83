@@ -36,22 +36,22 @@ const HeroSection = () => {
             <span className="bg-gradient-primary bg-clip-text text-transparent animate-glow">
               Reais em Cripto
             </span>{' '}
-            da forma mais prática
+            de forma <span className="text-primary">rápida</span>, <span className="text-accent">segura</span> e <span className="text-primary">moderna</span>
           </h1>
 
           {/* Subtitle */}
           <p className={`text-xl md:text-2xl text-white/80 mb-10 max-w-3xl mx-auto transition-all duration-1000 delay-700 ${isVisible ? 'animate-slide-up' : ''}`}>
-            Compre cripto com Pix em segundos e abra sua conta digital com CPF ou CNPJ.
+            Pague com <strong>Pix</strong> e receba diretamente na nossa <strong>Carteira Segura Multichain</strong>, com <strong>swap integrado</strong>.
           </p>
 
           {/* CTA Buttons */}
           <div className={`flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 transition-all duration-1000 delay-900 ${isVisible ? 'animate-scale-in' : ''}`}>
             <Button className="btn-primary group">
-              Comprar Cripto
+              Comprar Cripto com Pix
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
             </Button>
             <Button className="btn-ghost">
-              Abrir Conta Digital
+              Conheça a Carteira
             </Button>
           </div>
 

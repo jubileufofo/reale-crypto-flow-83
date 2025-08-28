@@ -36,9 +36,9 @@ const SolutionsSection = () => {
   const solutions = [
     {
       icon: CreditCard,
-      title: "Conta Digital",
-      description: "Conta completa para pessoas físicas e jurídicas com todas as funcionalidades bancárias",
-      features: ["Transferências", "Pagamentos", "Cartão virtual", "Extrato em tempo real"],
+      title: "Carteira Segura",
+      description: "Carteira multichain para armazenar e gerenciar suas criptos com segurança",
+      features: ["Armazenamento seguro", "Swap integrado", "Multi-chain", "Interface intuitiva"],
       color: "primary"
     },
     {

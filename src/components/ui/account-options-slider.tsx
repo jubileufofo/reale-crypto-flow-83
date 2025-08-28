@@ -93,10 +93,10 @@ function AccountOptionsSlider() {
           <div className="text-center px-4">
             <Badge variant="outline" className="mb-4">Escolha sua Opção</Badge>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tighter font-bold text-white mb-4 leading-tight">
-              Abra sua Conta Digital
+              Crie sua Carteira Segura
             </h2>
             <p className="text-base sm:text-lg max-w-2xl mx-auto leading-relaxed tracking-tight text-gray-300 px-2">
-              Clique ou arraste o slider para comparar entre conta completa e compra rápida de cripto
+              Clique ou arraste o slider para comparar entre carteira completa e compra rápida de cripto
             </p>
           </div>
           
@@ -134,7 +134,7 @@ function AccountOptionsSlider() {
                 </button>
               </div>
 
-              {/* Left Side - Conta Digital Completa */}
+              {/* Left Side - Carteira Segura Completa */}
               <div
                 className="absolute left-0 top-0 z-10 w-full h-full rounded-2xl select-none bg-gradient-to-br from-blue-900 to-blue-800 transition-all duration-300"
                 style={{
@@ -146,10 +146,10 @@ function AccountOptionsSlider() {
                   <div className="text-center text-white space-y-3 sm:space-y-4 max-w-sm sm:max-w-md mx-auto w-full h-full flex flex-col justify-center py-4">
                     <div className="space-y-2">
                       <h3 className="text-lg sm:text-xl md:text-2xl font-bold leading-tight text-white">
-                        Abra sua Conta Digital Completa
+                        Crie sua Carteira Segura Multichain
                       </h3>
                       <p className="text-blue-200 text-sm sm:text-base">
-                        Conta completa para pessoa física e jurídica
+                        Armazene e gerencie suas criptos com segurança
                       </p>
                     </div>
 
@@ -188,7 +188,7 @@ function AccountOptionsSlider() {
                     </div>
 
                     <Button className="bg-white text-blue-900 hover:bg-blue-50 font-semibold px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base w-full sm:w-auto mt-2">
-                      Criar Conta Digital Completa
+                      Criar Carteira Segura
                     </Button>
                   </div>
                 </div>
@@ -243,7 +243,7 @@ function AccountOptionsSlider() {
                         Compre Agora
                       </Button>
                       <p className="text-xs text-gray-400 max-w-xs mx-auto leading-relaxed">
-                        Compra feita via plataforma do Reale. Você pode comprar cripto sem necessidade de uma conta digital completa.
+                        Compra feita via plataforma do Reale. Você pode comprar cripto direto na sua carteira segura.
                       </p>
                     </div>
                   </div>

@@ -22,7 +22,7 @@ const AppDownloadSection = () => {
                 </span>
               </h2>
               <p className="text-white/70 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-8">
-                Acesse soluções digitais completas com o Reale. Pagamentos, crypto e muito mais.
+                Acesse sua Carteira Segura Multichain no app: compra via Pix, swap integrado e segurança de alto nível.
               </p>
               
               <div className="flex gap-4 justify-center">

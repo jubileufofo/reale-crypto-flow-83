@@ -51,7 +51,7 @@ function Hero() {
             <p className="text-base sm:text-lg md:text-xl leading-relaxed tracking-tight max-w-3xl text-center text-muted-foreground px-4">
               Precisa de cripto com rapidez? Pague com <span className="text-reale-blue font-semibold animate-pulse">Pix</span>. 
               <br />
-              Para mais recursos, abra sua conta digital em poucos minutos disponível para pessoa física ou jurídica.
+              Para mais recursos, crie sua carteira segura multichain em poucos minutos disponível com swap integrado.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 px-4 w-full max-w-md sm:max-w-lg sm:mx-auto justify-center">

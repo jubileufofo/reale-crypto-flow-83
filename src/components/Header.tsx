@@ -46,14 +46,23 @@ const Header = () => {
             </span>
           </div>
 
-          {/* Navigation Buttons */}
-          <div className="flex items-center space-x-4">
-            <HamburgerButton 
-              className="text-white border-white/20 hover:bg-white/10"
-              open={isDockOpen}
-              setOpen={setIsDockOpen}
-            />
-          </div>
+          <nav className="hidden md:flex items-center space-x-8">
+            <a href="#home" className="text-white/80 hover:text-white transition-colors duration-300">
+              Home
+            </a>
+            <a href="#crypto" className="text-white/80 hover:text-white transition-colors duration-300">
+              Comprar Cripto
+            </a>
+            <a href="#wallet" className="text-white/80 hover:text-white transition-colors duration-300">
+              Carteira Segura
+            </a>
+            <a href="#api" className="text-white/80 hover:text-white transition-colors duration-300">
+              API e Desenvolvedores
+            </a>
+            <a href="#support" className="text-white/80 hover:text-white transition-colors duration-300">
+              Suporte
+            </a>
+          </nav>
         </div>
       </header>
 

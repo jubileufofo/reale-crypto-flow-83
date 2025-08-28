@@ -41,15 +41,21 @@ export function Dock({ isOpen, onClose }: DockProps) {
       action: 'scroll'
     },
     { 
-      label: 'Suporte', 
-      href: '#footer', 
-      icon: Settings,
+      label: 'Carteira Segura', 
+      href: '#wallet-section', 
+      icon: CreditCard,
       action: 'scroll'
     },
     { 
       label: 'API e Desenvolvedores', 
       href: '#api-developers', 
       icon: Code,
+      action: 'scroll'
+    },
+    { 
+      label: 'Suporte', 
+      href: '#footer', 
+      icon: Settings,
       action: 'scroll'
     },
   ];
@@ -144,14 +150,14 @@ export function Dock({ isOpen, onClose }: DockProps) {
               );
             })}
 
-            {/* Abra sua Conta Button */}
+            {/* Abra sua Carteira Button */}
             <div className="border-t border-white/10 pt-4 mt-4">
               <button 
                 onClick={handleAppDownloadClick}
                 className="w-full px-4 py-3 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-lg transition-all duration-300 flex items-center gap-3 justify-start text-base"
               >
                 <PlusCircle className="w-5 h-5" />
-                Abra sua Conta
+                Criar Carteira Segura
               </button>
             </div>
 
@@ -161,10 +167,10 @@ export function Dock({ isOpen, onClose }: DockProps) {
                 onClick={handleAccountDropdownClick}
                 className="w-full px-4 py-3 bg-reale-blue hover:bg-reale-blue/90 rounded-lg transition-all duration-300 flex items-center justify-between text-white text-base"
               >
-                <div className="flex items-center gap-3">
-                  <UserCircle className="w-5 h-5" />
-                  Acesse sua conta
-                </div>
+                  <div className="flex items-center gap-3">
+                    <UserCircle className="w-5 h-5" />
+                    Acesse sua carteira
+                  </div>
                 {isAccountDropdownOpen ? 
                   <ChevronUp className="w-4 h-4" /> : 
                   <ChevronDown className="w-4 h-4" />
@@ -182,14 +188,14 @@ export function Dock({ isOpen, onClose }: DockProps) {
                     className="w-full text-left px-4 py-2 hover:bg-white/5 rounded-md transition-all duration-200 flex items-center gap-3 text-white/80 hover:text-reale-yellow text-sm"
                   >
                     <CreditCard className="w-4 h-4" />
-                    Conta digital completa
+                    Carteira Segura Multichain
                   </button>
                   <button
                     onClick={() => handleAccountOptionClick('crypto')}
                     className="w-full text-left px-4 py-2 hover:bg-white/5 rounded-md transition-all duration-200 flex items-center gap-3 text-white/80 hover:text-reale-yellow text-sm"
                   >
                     <Zap className="w-4 h-4" />
-                    Conta de compra rápida cripto
+                    Compra rápida com Pix
                   </button>
                 </div>
               </div>
@@ -201,10 +207,10 @@ export function Dock({ isOpen, onClose }: DockProps) {
       {/* Account Dialog */}
       <Dialog open={isAccountDialogOpen} onOpenChange={setIsAccountDialogOpen}>
         <DialogContent className="bg-reale-black/95 backdrop-blur-xl border-white/10">
-          <DialogTitle className="text-white text-center">Entrar na minha conta</DialogTitle>
+          <DialogTitle className="text-white text-center">Acesse sua Carteira Segura</DialogTitle>
           <div className="flex flex-col gap-4 mt-4">
             <p className="text-white/80 text-center">
-              Para entrar na sua conta digital completa baixe o app do Reale clicando aqui
+              Para acessar sua Carteira Segura Multichain, baixe o app do Reale
             </p>
             <Button 
               onClick={handleAppDownloadClick}
