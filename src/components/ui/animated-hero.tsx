@@ -57,7 +57,8 @@ function Hero() {
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 px-4 w-full max-w-md sm:max-w-lg sm:mx-auto justify-center">
             <Button size="lg" className="gap-2 sm:gap-4 w-full sm:w-auto text-sm sm:text-base" variant="outline">
               <UserPlus className="w-4 h-4" />
-              <span className="hidden sm:inline">Abra sua conta completa</span>
+              <span className="hidden sm:inline">Baixe a Carteira Web3 Reale
+            </span>
               <span className="sm:hidden">Abrir conta</span>
             </Button>
             <Button size="lg" className="gap-2 sm:gap-4 w-full sm:w-auto text-sm sm:text-base">
