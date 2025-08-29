@@ -4,8 +4,8 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
-export default defineConfig({
-  base: '/reale-crypto-flow-83/',
+export default defineConfig(({ mode }) => ({
+  base: mode === 'production' ? '/reale-crypto-flow-83/' : '/',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
@@ -17,11 +17,11 @@ export default defineConfig({
   },
   plugins: [
     react(),
-    componentTagger(),
-  ],
+    mode === 'development' && componentTagger(),
+  ].filter(Boolean),
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
-});
+}));

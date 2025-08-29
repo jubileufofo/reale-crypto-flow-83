@@ -14,7 +14,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter basename="/reale-crypto-flow-83">
+      <BrowserRouter basename={import.meta.env.PROD ? "/reale-crypto-flow-83" : ""}>
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/maintenance" element={<Maintenance />} />
