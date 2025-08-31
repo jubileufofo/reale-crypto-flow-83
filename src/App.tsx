@@ -9,21 +9,27 @@ import Maintenance from "./pages/Maintenance";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter basename={import.meta.env.PROD ? "/reale-crypto-flow-83" : ""}>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/maintenance" element={<Maintenance />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+const App = () => {
+  console.log('App.tsx: Rendering App component...');
+  console.log('App.tsx: Environment PROD:', import.meta.env.PROD);
+  console.log('App.tsx: Basename:', import.meta.env.PROD ? "/reale-crypto-flow-83" : "");
+  
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter basename={import.meta.env.PROD ? "/reale-crypto-flow-83" : ""}>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/maintenance" element={<Maintenance />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+};
 
 export default App;

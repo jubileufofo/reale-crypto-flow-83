@@ -31,31 +31,38 @@ const features = [
 ]
 
 const Index = () => {
-  return (
-    <div className="min-h-screen bg-reale-black">
-      <Header />
-      <div id="home">
-        <Hero />
+  console.log('Index.tsx: Rendering Index component...');
+  
+  try {
+    return (
+      <div className="min-h-screen bg-reale-black">
+        <Header />
+        <div id="home">
+          <Hero />
+        </div>
+        <CryptoSection />
+        <ProcessingSection />
+        <div id="wallet-section">
+          <WalletSection />
+        </div>
+        <SolutionsSection />
+        <FeatureSteps 
+          features={features}
+          title="Como Começar no Reale"
+          autoPlayInterval={4000}
+        />
+        <div id="app-download">
+          <AppDownloadSection />
+        </div>
+        <div id="footer">
+          <Footer />
+        </div>
       </div>
-      <CryptoSection />
-      <ProcessingSection />
-      <div id="wallet-section">
-        <WalletSection />
-      </div>
-      <SolutionsSection />
-      <FeatureSteps 
-        features={features}
-        title="Como Começar no Reale"
-        autoPlayInterval={4000}
-      />
-      <div id="app-download">
-        <AppDownloadSection />
-      </div>
-      <div id="footer">
-        <Footer />
-      </div>
-    </div>
-  );
+    );
+  } catch (error) {
+    console.error('Index.tsx: Error rendering component:', error);
+    return <div>Error loading page</div>;
+  }
 };
 
 export default Index;
